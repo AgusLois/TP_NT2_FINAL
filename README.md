@@ -29,4 +29,56 @@ ROLES??????????? VEREMOS
 -Lista usuarios
 -Busqueda de usuario
 
+-----------------------
+ROUTER
+1- Hacer las rutas en la navbar
+2- Incluir el router en el proyecto npm i vue-router
+3-Crear en src el archivo router.js
+4- Hacer los import dentro de router.js Ejemplo:
+
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+
+<--          Importar los componentes        -->
+import Binding from './componentes/Binding.vue'
+
+Vue.use(VueRouter)
+
+
+export const router = new VueRouter({
+    mode: 'history',
+    routes: [
+        { path: '/', redirect:'/binding'},
+        import Vue from 'vue'
+import VueRouter from 'vue-router'
+
+import Binding from './componentes/Binding.vue'
+import Estructuras from './componentes/Estructuras.vue'
+import Atributos from './componentes/Atributos.vue'
+import Contadores from './componentes/Contadores.vue'
+import FormularioAv from './componentes/FormularioAv.vue'
+import Formulario from './componentes/Formulario/IndexFormulario.vue'
+import HttpClient from './componentes/HttpClient.vue'
+
+
+Vue.use(VueRouter)
+
+
+export const router = new VueRouter({
+    mode: 'history',
+    routes: [
+        { path: '/', redirect:'/binding'},
+        { path: '/binding', component: Binding },
+        { path: '/estructura', component: Estructuras },
+        { path: '/atributos', component: Atributos },
+        { path: '/contadores', component: Contadores },
+        { path: '/formularioAv', component: FormularioAv },
+        { path: '/formulario', component: Formulario },
+        { path: '/httpClient', component: HttpClient }
+
+    ]
+})
+
+    ]
+})
 
