@@ -1,24 +1,32 @@
-# tp_final
+COMPONENTES Y DISTRIBUCIÓN DE TAREAS
 
-## Project setup
-```
-npm install
-```
+PRODUCTO
+Id: int
+Nombre: String
+Precio: double
+cant: int
+Sucursal: String
+Categoria: String
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+SUCURSAL
+Id: int
+productos: Array de productos
+direccion: String
 
-### Compiles and minifies for production
-```
-npm run build
-```
+USUARIO
+Id: int
+Email: email
+Password: password
 
-### Lints and fixes files
-```
-npm run lint
-```
+-----------------
+ROLES??????????? VEREMOS
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+-Barra de navegación(ABM producto, reportes, ABM sucursales)
+-Formulario de productos con validaciones
+-Reporte que muestre todos los productos totales entre todas las sucursales
+-Filtrar productos por sucursal
+-Busqueda de producto(por su categoria)
+-Lista usuarios
+-Busqueda de usuario
+
+
