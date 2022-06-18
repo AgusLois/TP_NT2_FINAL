@@ -1,9 +1,24 @@
-<template>
-  <div id="app">
-
+  <template>
+   <div id="app">
+    <navBar/>
     <router-view/>
-  </div>
+  </div> 
 </template>
+
+
+<script>
+
+import NavBar from './components/NavBar'
+
+export default {
+  name: 'App',
+  components: {
+  
+  NavBar
+    }
+}
+</script>
+
 
 <style>
 #app {
@@ -26,4 +41,5 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
-</style>
+</style> 
+ 
