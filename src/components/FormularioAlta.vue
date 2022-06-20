@@ -9,30 +9,26 @@
 
       <vue-form :state="formState" @submit.prevent="enviar">
     
-        <!-- --------------------- -->
-        <!--     Campo id producto    -->
-        <!-- --------------------- -->
-        <validate tag="div">
-          <!-- Elemento de entrada -->
-          <label for="id">Código de producto</label>
+           <!--     Campo id producto    -->
+           <validate tag="div">
+           <label for="codigo">Código de producto</label>
           <input 
             type="text"
-            id="id"
-            name="id" 
+            id="codigo"
+            name="codigo" 
             class="form-control"
             autocomplete="off"
-            v-model.trim="formData.id" 
+            v-model.trim="formData.codigo" 
             required 
-            :minlength="idMinLength"
+            :minlength="codigoMinLength"
             no-espacios
           />
 
           <!-- Mensajes de validación -->
-          <field-messages name="id" show="$dirty">
-            <!-- <div class="alert alert-success mt-1">Success!</div> -->
-            <div slot="required" class="alert alert-danger mt-1">Campo requerido</div>
+          <field-messages name="codigo" show="$dirty">
+             <div slot="required" class="alert alert-danger mt-1">Campo requerido</div>
             <div slot="minlength" class="alert alert-danger mt-1">
-              Este campo requiere como mínimo {{idMinLength}} caracteres.
+              Este campo requiere como mínimo {{codigoMinLength}} caracteres.
             </div>
             <div slot="no-espacios" class="alert alert-danger mt-1">
               No se permiten espacios intermedios en este campo.
@@ -41,11 +37,9 @@
         </validate>
         <br>
 
-        <!-- --------------------- -->
+      
         <!--    Campo Nombre de producto    -->
-        <!-- --------------------- -->
-        <validate tag="div">
-          <!-- Elemento de entrada -->
+          <validate tag="div">
           <label for="nombre">Nombre</label>
           <input 
             type="text"
@@ -59,17 +53,13 @@
 
           <!-- Mensajes de validación -->
           <field-messages name="nombre" show="$dirty">
-            <!-- <div class="alert alert-success mt-1">Success!</div> -->
-            <div slot="required" class="alert alert-danger mt-1">Campo requerido</div>
+          <div slot="required" class="alert alert-danger mt-1">Campo requerido</div>
           </field-messages>
         </validate>
         <br>
 
-        <!-- --------------------- -->
         <!--      Campo Precio      -->
-        <!-- --------------------- -->
-        <validate tag="div">
-          <!-- Elemento de entrada -->
+         <validate tag="div">
           <label for="precio">Precio</label>
           <input 
             type="number"
@@ -85,21 +75,19 @@
 
           <!-- Mensajes de validación -->
           <field-messages name="precio" show="$dirty">
-            <!-- <div class="alert alert-success mt-1">Success!</div> -->
-            <div slot="required" class="alert alert-danger mt-1">Campo requerido</div>
+          <div slot="required" class="alert alert-danger mt-1">Campo requerido</div>
             
           </field-messages>
         </validate>
         <br>
 
-        <!-- --------------------- -->
+      
         <!--    Campo Cantidad     -->
-        <!-- --------------------- -->
+      
         <validate tag="div">
-          <!-- Elemento de entrada -->
           <label for="cantidad">Cantidad</label>
           <input 
-            type="text"
+            type="number"
             id="cantidad"
             name="cantidad" 
             class="form-control"
@@ -111,7 +99,6 @@
 
           <!-- Mensajes de validación -->
           <field-messages name="cantidad" show="$dirty">
-            <!-- <div class="alert alert-success mt-1">Success!</div> -->
             <div slot="required" class="alert alert-danger mt-1">Campo requerido</div>
             <div slot="min" class="alert alert-danger mt-1">La cantidad mínima es {{cantidadMin}}</div>
             </field-messages>
@@ -119,11 +106,9 @@
         <br>
 
 
-        <!-- --------------------- -->
+      
         <!--    Campo Sucursal    -->
-        <!-- --------------------- -->
-        <validate tag="div">
-          <!-- Elemento de entrada -->
+           <validate tag="div">
           <label for="sucursal">Sucursal</label>
           <input 
             type="text"
@@ -138,17 +123,15 @@
 
           <!-- Mensajes de validación -->
           <field-messages name="sucursal" show="$dirty">
-            <!-- <div class="alert alert-success mt-1">Success!</div> -->
             <div slot="required" class="alert alert-danger mt-1">Campo requerido</div>
             </field-messages>
         </validate>
         <br>
 
-          <!-- --------------------- -->
+       
         <!--    Campo Categoria   -->
-        <!-- --------------------- -->
+       
         <validate tag="div">
-          <!-- Elemento de entrada -->
           <label for="categoria">Categoría</label>
           <input 
             type="text"
@@ -163,19 +146,12 @@
 
           <!-- Mensajes de validación -->
           <field-messages name="categoria" show="$dirty">
-            <!-- <div class="alert alert-success mt-1">Success!</div> -->
-            <div slot="required" class="alert alert-danger mt-1">Campo requerido</div>
+             <div slot="required" class="alert alert-danger mt-1">Campo requerido</div>
             </field-messages>
         </validate>
         <br>
 
-
-
-
-
-
-
-        <!-- Botón de envío -->
+        <!-- Botones-->
         <button class="btn btn-success my-4 mr-3" :disabled="formState.$invalid">Enviar</button>
         <button class="btn btn-danger my-4 " @click="cancelar()">Cancelar</button>
       </vue-form>      
@@ -206,9 +182,9 @@
         return {
         formState : {},
         formData : this.getInicialData(),
-        idMinLength :3,
+        codigoMinLength :3,
         cantidadMin: 1,
-        url:'https://62842ba33060bbd3473556b1.mockapi.io/Productos',
+        url:'https://62842ba33060bbd3473556b1.mockapi.io/Productos/',
         productos: []
        
       }
@@ -216,7 +192,7 @@
     methods: {
       getInicialData() {
         return {
-          id: '',
+          codigo: '',
           nombre: '',
           precio: '',
           cantidad: '',
@@ -224,34 +200,29 @@
           categoria: '',
         }
       },
-     enviar() {
-        //SPREAD OPERATOR -> obj = {a:1,b:2} -> ...obj -> a:1,b:2 -> { ...obj } -> Clon de obj
-        //SPREAD OPERATOR -> array = [1,2] -> ...array -> 1,2 -> [...array ] -> Clon del array
+     async enviar() {
+      
         console.log({ ...this.formData })
         let productoNew ={
-          codigo:this.id,
-          nombre:this.nombre,
-          precio:this.precio,
-          cantidad:this.cantidad,
-          sucursal:this.sucursal,
-          categoria:this.categoria,
+          Codigo:this.formData.codigo,
+          Nombre:this.formData.nombre,
+          Precio:this.formData.precio,
+          Cantidad:this.formData.cantidad,
+          Sucursal:this.formData.sucursal,
+          Categoria:this.formData.categoria,
         }
 
-      /*  try {
+        try {
           let { data:producto} = await axios.post(this.url, productoNew, {'content-type' : 'application/json'})
           this.productos.push(productoNew)
           console.log('Post Axios',producto)
         }
         catch(error){
           console.error("error post", error.message)
-        }*/
+        }
 
-        axios.post('/Productos', productoNew).then(response => {
-        console.log(response)
-         
-         })
-        this.formData = this.getInicialData() //reste de los datos del vue-form
-        this.formState._reset()   //reset de los estados del vue-form
+        this.formData = this.getInicialData() 
+        this.formState._reset()   
       },
 
       cancelar(){
