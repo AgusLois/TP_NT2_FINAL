@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Login from '../components/Login.vue'
 import Dashboard from '../components/Dashboard.vue'
 import Usuarios from '../components/Usuarios.vue'
+import FormularioAlta from '../components/FormularioAlta.vue'
 
 Vue.use(VueRouter)
 
@@ -21,7 +22,16 @@ const routes = [
     path: '/usuarios',
     name: 'Usuarios',
     component: Usuarios
+  },
+
+
+
+  {
+    path: '/formularioAlta',
+    name: 'FormularioAlta',
+    component : FormularioAlta
   }
+
 ]
 
 const router = new VueRouter({

@@ -1,6 +1,7 @@
 <template>
 
   <section class="src-components-usuario">
+    
     <hr>
     <h1>Listado de usuarios</h1>
 
@@ -27,6 +28,7 @@
             <h4 v-else class="alert alert-danger text-center">No se encontraron Usuarios</h4>
 
   </div>
+
   </section>
 
 </template>
