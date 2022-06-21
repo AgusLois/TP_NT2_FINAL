@@ -3,7 +3,7 @@
   <section class="src-components-usuario">
     
     <hr>
-    <h1>Listado de usuarios</h1>
+    <h1>{{ "Listado de usuarios" | pasarAMayuscula}}  </h1>
 
     <div class="container-fluid mt-3" id="app">
     <input type="text" class="form-control" v-model="criterioDeBusqueda"
