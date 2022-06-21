@@ -69,6 +69,8 @@
             autocomplete="off"
             v-model.number="formData.precio" 
             required 
+            :min="cantidadMinPrecio"
+
             
            
           />
@@ -76,6 +78,8 @@
           <!-- Mensajes de validación -->
           <field-messages name="precio" show="$dirty">
           <div slot="required" class="alert alert-danger mt-1">Campo requerido</div>
+          <div slot="min" class="alert alert-danger mt-1">No se aceptan numeros negativos</div>
+
             
           </field-messages>
         </validate>
@@ -157,13 +161,13 @@
       </vue-form>      
 
       <hr>
-      <p><u>formData</u></p>
+     <!--  <p><u>formData</u></p>
       <pre>{{ formData }}</pre>
 
       <hr>
       <p><u>formState</u></p>
       <pre>{{ formState }}</pre>
-
+ -->
     </div>
   </section>
    
@@ -184,6 +188,7 @@
         formData : this.getInicialData(),
         codigoMinLength :3,
         cantidadMin: 1,
+        cantidadMinPrecio: 0,
         url:'https://62842ba33060bbd3473556b1.mockapi.io/Productos/',
         productos: []
        
