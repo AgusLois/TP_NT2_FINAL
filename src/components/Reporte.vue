@@ -4,18 +4,18 @@
         <h1>Reporte de productos</h1>
         <div v-for="(p, sucursal) in productos" v-bind:key="sucursal">
 
-            <h3>{{ sucursal }}</h3>
-            <div v-if="p.length" class="table-responsive">
-                <table class="table table-dark">
+            <h3>Sucursal {{ sucursal }}</h3>
+            <div v-if="p.length" class="table">
+                <table class="table table-light">
 
                     <tr>
                         <th>Producto</th>
                         <th>Cantidad</th>
                     </tr>
-                <tr v-for="(producto,index) in p" :key="index">
-                 <td>{{ producto.Nombre }}</td>
-                 <td>{{ producto.Cantidad }}</td>
-              </tr>
+                    <tr v-for="(producto,index) in p" :key="index">
+                        <td>{{ producto.Nombre }}</td>
+                        <td>{{ producto.Cantidad }}</td>
+                    </tr>
 
                 </table>
             </div>
@@ -48,7 +48,7 @@ export default {
             const response = await axios.get('/Productos');
 
             response.data.map(producto => {
-              if (!productos[producto.Sucursal]) {
+                if (!productos[producto.Sucursal]) {
                     productos[producto.Sucursal] = []
                 }
                 productos[producto.Sucursal].push(producto)
