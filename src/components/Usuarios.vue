@@ -5,15 +5,12 @@
     <hr>
     <h1>Listado de usuarios</h1>
 
-    <button class="btn btn-success my-3 mr-3" @click="getPostsUsers()">Pedir usuarios</button>
-    <button class="btn btn-danger my-3" @click="usuarios=[]">Cerrar</button>
-
     <div class="container-fluid mt-3" id="app">
     <input type="text" class="form-control" v-model="criterioDeBusqueda"
         placeholder="Búsqueda de usuarios...">
      <br>
          <div v-if="usuarios.length" class="table-responsive">
-          <table class="table table-dark">
+          <table class="table table-striped ">
               <tr>
                  <th>id</th>
                  <th>email</th>
@@ -39,7 +36,7 @@
     name: 'src-components-usuario',
     props: [],
     mounted () {
-
+      this.getPostsUsers()
     },
     data () {
       return {
