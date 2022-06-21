@@ -39,7 +39,7 @@
 
 
           <li class="nav-item">
-            <router-link to="reportes">
+            <router-link to="reporte">
             <a class="nav-link" href="#">Reporte</a>
               </router-link>
           </li>
