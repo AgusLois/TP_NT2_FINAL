@@ -12,8 +12,8 @@
          <div v-if="usuarios.length" class="table-responsive">
           <table class="table table-striped ">
               <tr>
-                 <th>id</th>
-                 <th>email</th>
+                 <th>Id</th>
+                 <th>Email</th>
               </tr>
               <tr v-for="(usuario,index) in personasFiltradas" :key="index">
                  <td>{{ usuario.id }}</td>

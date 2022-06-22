@@ -5,6 +5,7 @@ import Dashboard from '../components/Dashboard.vue'
 import Usuarios from '../components/Usuarios.vue'
 import Reporte from '../components/Reporte.vue'
 import FormularioAlta from '../components/FormularioAlta.vue'
+import Productos from '../components/Productos.vue'
 
 Vue.use(VueRouter)
 
@@ -35,7 +36,13 @@ const routes = [
     path: '/formularioAlta',
     name: 'FormularioAlta',
     component : FormularioAlta
+  },
+  {
+    path: '/productos',
+    name: 'Productos',
+    component : Productos
   }
+
 
 ]
 

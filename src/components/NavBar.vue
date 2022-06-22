@@ -25,7 +25,7 @@
 
 
           <li class="nav-item">
-            <router-link to="">
+            <router-link to="productos">
             <a class="nav-link" href="#">Productos</a>
               </router-link>
           </li>
