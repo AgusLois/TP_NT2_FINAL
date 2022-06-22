@@ -16,9 +16,7 @@
                  <th>Nombre</th>
                  <th>Precio</th>
                  <th>Cantidad</th>
-                 <th>Sucursal</th>
                  <th>Categoria</th>
-                 <th>Codigo</th>
 
               </tr>
               <tr v-for="(producto,index) in productosFiltrados" :key="index">
@@ -26,10 +24,9 @@
                  <td>{{ producto.Nombre }}</td>
                  <td>{{ producto.Precio | curremcy("$")}}</td>
                  <td>{{ producto.Cantidad }}</td>
-                 <td>{{ producto.Sucursal }}</td>
                  <td>{{ producto.Categoria }}</td>
-                <td>{{ producto.Codigo }}</td>
-
+                 <button class="btn btn-danger mr-2" @click="eliminar(producto.id)">ELIMINAR</button>
+                 <button class="btn btn-primary" @click="editar(producto.id)">EDITAR</button>
               </tr>
 
           </table>
@@ -61,7 +58,7 @@
       return {
         productos:[],
         criterioDeBusqueda: '',
-        url:'https://62842ba33060bbd3473556b1.mockapi.io/Productos'
+        url:'https://62842ba33060bbd3473556b1.mockapi.io/Productos/'
       }
     },
     methods: {
@@ -72,7 +69,36 @@
       }catch(error){
          console.log("Error Axios", error)
       }
-      }
+      },
+      async eliminar(id){
+          console.log("delete usuarios", id)
+           try{
+            let {data:producto} = await axios.delete(this.url+id)
+            console.log("AXIOS DELETE PRODUCTOS", producto)
+            let index = this.productos.findIndex(prod => prod.id == producto.id)
+            if(index == -1) throw new Error ("Producto no encontrado")
+            this.productos.splice(index,1)
+            } 
+            catch(error){
+            console.log("Error en eliminar()", error.message)
+            }
+      },
+      /*  async editar(id){
+         console.log("put usuarios", id)
+          try{
+         
+            let {data:usuario} = await this.axios.put(this.url+id, usuarioUpdate, {"content-type": "application/json"})
+            console.log("AXIOS PUT USUARIOS", usuario)
+            let index = this.usuarios.findIndex(user => user.id == usuario.id)
+            if(index == -1) throw new Error ("Usuario no encontrado")
+            this.usuarios.splice(index,1,usuario)
+            } 
+            catch(error){
+            console.log("Error en putUsuarios()", error.message)
+            }
+          
+          } */
+          
     },
     computed: {
       productosFiltrados() {

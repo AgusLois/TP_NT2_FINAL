@@ -30,14 +30,6 @@
               </router-link>
           </li>
 
-
-         <li class="nav-item">
-            <router-link to="">
-            <a class="nav-link" href="#">Sucursales</a>
-            </router-link>
-          </li>
-
-
           <li class="nav-item">
             <router-link to="reporte">
             <a class="nav-link" href="#">Reporte</a>
