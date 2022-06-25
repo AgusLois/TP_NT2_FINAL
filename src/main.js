@@ -12,6 +12,7 @@ import "jquery"
 import "popper.js"
 import "bootstrap"
 
+
 Vue.config.productionTip = false
 
 new Vue({

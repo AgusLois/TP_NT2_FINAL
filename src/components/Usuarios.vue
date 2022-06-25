@@ -18,6 +18,8 @@
               <tr v-for="(usuario,index) in personasFiltradas" :key="index">
                  <td>{{ usuario.id }}</td>
                  <td>{{ usuario.email }}</td>
+                  <button class="btn btn-danger mr-2" @click="eliminar(usuario.id)">ELIMINAR</button>
+                 <button class="btn btn-primary" @click="editar(usuario.id)">EDITAR</button>
               </tr>
           </table>
            <h4 class="alert alert-primary">Se encontraron {{usuarios.length}} usuarios</h4>
@@ -42,7 +44,7 @@
       return {
         usuarios:[],
         criterioDeBusqueda: '',
-        url:'https://62842ba33060bbd3473556b1.mockapi.io/users'
+        url:'https://62842ba33060bbd3473556b1.mockapi.io/users/'
       }
     },
     methods: {
@@ -53,7 +55,22 @@
       }catch(error){
          console.log("Error Axios", error)
       }
-      }
+      },
+        async eliminar(id){
+          console.log("delete usuarios", id)
+           try{
+         
+            let {data:usuario} = await axios.delete(this.url+id)
+            console.log("AXIOS DELETE USUARIOS", usuario)
+            let index = this.usuarios.findIndex(user => user.id == usuario.id)
+            if(index == -1) throw new Error ("Usuario no encontrado")
+            this.usuarios.splice(index,1)
+            } 
+            catch(error){
+            console.log("Error en eliminar()", error.message)
+            }
+
+       }
     },
     computed: {
       personasFiltradas() {

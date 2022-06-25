@@ -1,5 +1,5 @@
 <template>
-    <section class="src-components-reporte">
+    <section class="src-components-reporte" :style="{backgroundColor:colorDeFondo,color:colorDeTexto}">
         <hr>
         <h1>Reporte de productos</h1>
         <div v-for="(p, sucursal) in productos" v-bind:key="sucursal">
@@ -31,7 +31,7 @@
 import axios from 'axios'
 export default {
     name: 'src-components-usuario',
-    props: [],
+    props: ["colorDeFondo","colorDeTexto"],
     mounted() {
         this.productosPorSucursal()
     },

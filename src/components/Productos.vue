@@ -71,7 +71,7 @@
       }
       },
       async eliminar(id){
-          console.log("delete usuarios", id)
+          console.log("delete productos", id)
            try{
             let {data:producto} = await axios.delete(this.url+id)
             console.log("AXIOS DELETE PRODUCTOS", producto)

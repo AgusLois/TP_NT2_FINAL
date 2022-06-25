@@ -26,12 +26,12 @@ const routes = [
     name: 'Usuarios',
     component: Usuarios
   },
-  {
-    path: '/reporte',
-    name: 'Reporte',
-    component: Reporte
+  
+    {path: "/reporte/:colorDeFondo/:colorDeTexto",
+    name:"Reporte", 
+    component: Reporte, 
+    props:true
   },
-
 
   {
     path: '/formularioAlta',
