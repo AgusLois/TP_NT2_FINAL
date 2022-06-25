@@ -9,7 +9,7 @@
     <input type="text" class="form-control" v-model="criterioDeBusqueda"
         placeholder="Búsqueda de productos...">
      <br>
-         <div v-if="productos.length" class="table-responsive">
+         <div v-if="productos.length && !productoAEditar" class="table-responsive">
           <table class="table table-striped ">
               <tr>
                  <th>Id</th>
@@ -26,13 +26,22 @@
                  <td>{{ producto.Cantidad }}</td>
                  <td>{{ producto.Categoria }}</td>
                  <button class="btn btn-danger mr-2" @click="eliminar(producto.id)">ELIMINAR</button>
-                 <button class="btn btn-primary" @click="editar(producto.id)">EDITAR</button>
+                 <button class="btn btn-primary" @click="productoAEditar=producto">EDITAR</button>
+            
               </tr>
-
+                  
           </table>
+             
            <h4 class="alert alert-primary">Se encontraron {{productos.length}} productos</h4>
          </div>
             <h4 v-else class="alert alert-danger text-center">No se encontraron productos</h4>
+             
+             <!--  USO LA COMUNICACION ENTRE CLASES A TRAVES DE PROPS Y EVENTOS -->
+             <div v-if="productoAEditar">
+                 <editar :productoAEditar = "productoAEditar" :listaProductos = "productos" @editado="productoAEditar = $event"></editar>
+            </div> 
+            
+            
 
   </div>
 
@@ -41,10 +50,14 @@
 </template>
 
 <script>
+  import editar from './FormularioEditar.vue'
   import axios from 'axios'
   export default  {
     name: 'src-components-productos',
     props: [],
+    components:{
+      editar
+    },
     mounted () {
       this.getPostsProductos()
     },
@@ -58,7 +71,8 @@
       return {
         productos:[],
         criterioDeBusqueda: '',
-        url:'https://62842ba33060bbd3473556b1.mockapi.io/Productos/'
+        url:'https://62842ba33060bbd3473556b1.mockapi.io/Productos/',
+        productoAEditar:''
       }
     },
     methods: {

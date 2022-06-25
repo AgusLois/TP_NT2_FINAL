@@ -7,7 +7,7 @@
       <hr>
       <br>
 
-      <vue-form :state="formState" @submit.prevent="enviar">
+      <vue-form :state="formState" @submit.prevent="editar(productoAEditar.id)">
     
            <!--     Campo id producto    -->
            <validate tag="div">
@@ -175,12 +175,13 @@
 </template>
 
 <script lang="js">
- import axios from 'axios'
+  import axios from 'axios'
   export default  {
     name: 'src-components-formulario-alta',
-    props: [],
+     //RECIBO EL PRODUCTO A EDITAR Y LA LISTA DE PRODUCTOS  PARA USAR EL FINDINDEX()
+    props: ['productoAEditar','listaProductos'],
     mounted () {
-
+     
     },
     data () {
         return {
@@ -190,50 +191,58 @@
         cantidadMin: 1,
         cantidadMinPrecio: 0,
         url:'https://62842ba33060bbd3473556b1.mockapi.io/Productos/',
-        productos: []
+        productos: this.listaProductos,
+        seEdito: ''
+        
        
       }
     },
     methods: {
       getInicialData() {
         return {
-          codigo: '',
-          nombre: '',
-          precio: '',
-          cantidad: '',
-          sucursal: '',
-          categoria: '',
+          codigo: this.productoAEditar.Codigo,
+          nombre: this.productoAEditar.Nombre,
+          precio: this.productoAEditar.Precio,
+          cantidad: this.productoAEditar.Cantidad,
+          sucursal: this.productoAEditar.Sucursal,
+          categoria: this.productoAEditar.Categoria,
         }
       },
-     async enviar() {
-      
-        console.log({ ...this.formData })
-        let productoNew ={
+
+      async editar(proId){
+
+        let productoEditado ={
           Codigo:this.formData.codigo,
           Nombre:this.formData.nombre,
           Precio:this.formData.precio,
           Cantidad:this.formData.cantidad,
           Sucursal:this.formData.sucursal,
           Categoria:this.formData.categoria,
+
         }
 
         try {
-          let { data:producto} = await axios.post(this.url, productoNew, {'content-type' : 'application/json'})
-          this.productos.push(productoNew)
-          console.log('Post Axios',producto)
+          let { data: prodEditado } = await axios.put(this.url+proId, productoEditado, {'content-type' : 'application/json'})
+          console.log('AXIOS PUT producto', prodEditado)
+
+          let index = this.productos.findIndex(p => p.id == prodEditado.id)
+          if(index == -1) throw new Error('producto no encontrado')
+          this.productos.splice(index, 1, prodEditado)  
+
+          //EVENTO PARA MANDAR A CALSE PRODUCTO PARA INFORMAR Q SE EDITO (pone en vacio productoAditar) Y CIERRA LA VISTA DE EDICION
+          this.$emit('editado', this.seEdito)
         }
-        catch(error){
-          console.error("error post", error.message)
+        catch(error) {
+          console.error('Error en editar()', error.message)
         }
 
-        this.formData = this.getInicialData() 
-        this.formState._reset()   
       },
+
 
       cancelar(){
         this.formData = this.getInicialData()
         this.formState._reset()
-      }
+      },
 
     },
     computed: {
