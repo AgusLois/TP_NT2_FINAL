@@ -1,27 +1,24 @@
 <template>
-    <section class="src-components-reporte">
+    <section class="src-components-reporte container">
         <hr>
         <h1>Reporte de productos</h1>
-        <div v-for="(p, sucursal) in productos" v-bind:key="sucursal">
-
-            <h3>Sucursal {{ sucursal }}</h3>
-            <div v-if="p.length" class="table">
-                <table class="table table-light">
-
-                    <tr>
-                        <th>Producto</th>
-                        <th>Cantidad</th>
-                    </tr>
-                    <tr v-for="(producto,index) in p" :key="index">
-                        <td>{{ producto.Nombre }}</td>
-                        <td>{{ producto.Cantidad }}</td>
-                    </tr>
-
-                </table>
-            </div>
-            <h4 v-else class="alert alert-danger text-center">No se encontraron productos en esta sucursal</h4>
-
-        </div>
+        <table class="table table-light table-sm table-bordered">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                </tr>
+            </thead>
+            <tbody v-for="(p, sucursal) in productos" v-bind:key="sucursal">
+                <tr class="sucursal">
+                    <td colspan="2">Sucursal {{ sucursal }}</td>
+                </tr>
+                <tr v-for="(producto, index) in p" :key="index">
+                    <td>{{ producto.Nombre }}</td>
+                    <td>{{ producto.Cantidad }}</td>
+                </tr>
+            </tbody>
+        </table>
 
 
     </section>
@@ -30,7 +27,7 @@
 <script>
 import axios from 'axios'
 export default {
-    name: 'src-components-usuario',
+    name: 'src-components-reporte',
     props: [],
     mounted() {
         this.productosPorSucursal()
@@ -73,5 +70,10 @@ export default {
 <style scoped lang="css">
 h1 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.sucursal td {
+    background: #ddd !important;
+    font-weight: bold;
 }
 </style>
