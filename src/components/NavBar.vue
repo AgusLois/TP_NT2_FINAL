@@ -35,6 +35,14 @@
             <a class="nav-link" href="#">Reporte</a>
               </router-link>
           </li>
+
+          <li class="nav-item">
+            <router-link to="">
+            <a class="nav-link" href="#">Cantidad Total de articulos: {{this.$store.state.contadorProductos}}</a>
+              </router-link>
+          </li>
+
+          
         </ul>
       </div>
     </nav>

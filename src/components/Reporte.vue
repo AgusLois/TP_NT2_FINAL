@@ -16,11 +16,22 @@
                         <td>{{ producto.Nombre }}</td>
                         <td>{{ producto.Cantidad }}</td>
                     </tr>
+                   
 
                 </table>
             </div>
             <h4 v-else class="alert alert-danger text-center">No se encontraron productos en esta sucursal</h4>
+            
 
+        </div>
+
+        <div>
+            <table class="table table-dark">
+                    <tr>
+                        <td>Cantidad total de Productos : </td>
+                        <td class="btn btn-success" @click="contarProductos"> {{mostrarCantidadTotal}}</td> 
+                    </tr>
+            </table>
         </div>
 
 
@@ -34,11 +45,15 @@ export default {
     props: ["colorDeFondo","colorDeTexto"],
     mounted() {
         this.productosPorSucursal()
+       
+        
+        
     },
     data() {
         return {
             productos: [],
-            url: 'https://62842ba33060bbd3473556b1.mockapi.io/Productos'
+            url: 'https://62842ba33060bbd3473556b1.mockapi.io/Productos',
+            
         }
     },
     methods: {
@@ -60,12 +75,17 @@ export default {
         },
 
 
+    },
         computed: {
+            mostrarCantidadTotal(){
+                let cantidadTotal = this.$store.state.contadorProductos
+                return cantidadTotal
+            }
 
         },
 
     }
-}
+
 
 
 </script>

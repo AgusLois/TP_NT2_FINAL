@@ -11,11 +11,14 @@ import 'bootstrap/dist/css/bootstrap.css'
 import "jquery"
 import "popper.js"
 import "bootstrap"
+import store from './store'
+import  './globalMixins'
 
 
 Vue.config.productionTip = false
 
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount('#app')
