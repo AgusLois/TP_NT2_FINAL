@@ -1,24 +1,27 @@
 <template>
     <section class="src-components-reporte container">
-        <hr>
-        <h1>Reporte de productos</h1>
-        <table class="table table-light table-sm table-bordered">
-            <thead>
-                <tr>
-                    <th>Producto</th>
-                    <th>Cantidad</th>
-                </tr>
-            </thead>
-            <tbody v-for="(p, sucursal) in productos" v-bind:key="sucursal">
-                <tr class="sucursal">
-                    <td colspan="2">Sucursal {{ sucursal }}</td>
-                </tr>
-                <tr v-for="(producto, index) in p" :key="index">
-                    <td>{{ producto.Nombre }}</td>
-                    <td>{{ producto.Cantidad }}</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="card mt-5">
+            <div class="card-header">
+                <h3 class="card-title">Reporte de Productos</h3>
+            </div>
+            <div class="card-body">
+                <table class="table table-light table-sm table-bordered">
+                    <tbody v-for="(p, sucursal) in productos" v-bind:key="sucursal">
+                        <tr class="sucursal">
+                            <td colspan="2">Sucursal {{ sucursal }}</td>
+                        </tr>
+                        <tr class="cabecera-mini">
+                            <td>Producto</td>
+                            <td>Cantidad</td>
+                        </tr>
+                        <tr v-for="(producto, index) in p" :key="index">
+                            <td>{{ producto.Nombre }}</td>
+                            <td>{{ producto.Cantidad }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
 
     </section>
@@ -75,5 +78,10 @@ h1 {
 .sucursal td {
     background: #ddd !important;
     font-weight: bold;
+}
+
+.cabecera-mini td {
+    background: #eee !important;
+    font-size: 0.7em;
 }
 </style>
