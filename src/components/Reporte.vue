@@ -1,8 +1,8 @@
 <template>
-    <section class="src-components-reporte container" :style="{backgroundColor:colorDeFondo,color:colorDeTexto}">
+    <section class="src-components-reporte container" :style="{ backgroundColor: colorDeFondo, color: colorDeTexto }">
         <div class="card mt-5">
             <div class="card-header">
-                <h3 class="card-title">Reporte de Productos</h3>
+                <h3 class="card-title-dark">Reporte de Productos</h3>
             </div>
             <div class="card-body">
                 <table class="table table-light table-sm table-bordered">
@@ -19,18 +19,16 @@
                             <td>{{ producto.Cantidad }}</td>
                         </tr>
                     </tbody>
+                    <hr>
+                    <tr>
+                        <td>Cantidad total de Productos: </td>
+                        <td class="btn btn-outline-success" @click="contarProductos"> {{ mostrarCantidadTotal }}</td>
+                    </tr>
                 </table>
             </div>
         </div>
         <div>
-            <table class="table table-dark">
-                    <tr>
-                        <td>Cantidad total de Productos : </td>
-                        <td class="btn btn-success" @click="contarProductos"> {{mostrarCantidadTotal}}</td> 
-                    </tr>
-            </table>
         </div>
-
     </section>
 </template> 
 
@@ -38,18 +36,18 @@
 import axios from 'axios'
 export default {
     name: 'src-components-reporte',
-    props: ["colorDeFondo","colorDeTexto"],
+    props: ["colorDeFondo", "colorDeTexto"],
     mounted() {
         this.productosPorSucursal()
-       
-        
-        
+
+
+
     },
     data() {
         return {
             productos: [],
             url: 'https://62842ba33060bbd3473556b1.mockapi.io/Productos',
-            
+
         }
     },
     methods: {
@@ -72,15 +70,15 @@ export default {
 
 
     },
-        computed: {
-            mostrarCantidadTotal(){
-                let cantidadTotal = this.$store.state.contadorProductos
-                return cantidadTotal
-            }
+    computed: {
+        mostrarCantidadTotal() {
+            let cantidadTotal = this.$store.state.contadorProductos
+            return cantidadTotal
+        }
 
-        },
+    },
 
-    }
+}
 
 
 
@@ -98,6 +96,6 @@ h1 {
 
 .cabecera-mini td {
     background: #eee !important;
-    font-size: 0.7em;
+    font-size: 0.9em;
 }
 </style>

@@ -105,8 +105,8 @@
           <br>
 
           <!-- Botones-->
-          <button class="btn btn-success my-4 mr-3" :disabled="formState.$invalid">Enviar</button>
-          <button class="btn btn-danger my-4 " @click="cancelar()">Cancelar</button>
+          <button class="btn btn-outline-success my-4 mr-3" :disabled="formState.$invalid">Enviar</button>
+          <button class="btn btn-outline-danger my-4 " @click="cancelar()">Cancelar</button>
         </vue-form>
       </div>
 

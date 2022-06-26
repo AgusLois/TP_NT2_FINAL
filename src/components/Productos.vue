@@ -27,13 +27,13 @@
                       <td>{{ producto.Cantidad }}</td>
                       <td>{{ producto.Categoria }}</td>
                       <td>
-                        <button class="btn btn-danger btn-sm mr-2" @click="eliminar(producto.id)">Eliminar</button>
-                        <button class="btn btn-primary btn-sm" @click="editar(producto.id)">Editar</button>
+                        <button class="btn btn-outline-danger btn-sm mr-2" @click="eliminar(producto.id)">Eliminar</button>
+                        <button class="btn btn-outline-primary btn-sm" @click="editar(producto.id)">Editar</button>
                       </td>
                       </tr>
 
                   </table>
-                  <h4 class="alert alert-primary">Se encontraron {{ productos.length }} productos</h4>
+                  <h4 class="alert alert-secondary">Se encontraron {{ productos.length }} productos</h4>
                 </div>
                 <h4 v-else class="alert alert-danger text-center">No se encontraron productos</h4>
     
