@@ -2,7 +2,7 @@
 
    <section class="src-componentes-nav-bar">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <router-link to="formularioAlta">
+          <router-link to="/formularioAlta">
             <a class="navbar-brand" href="#">Inicio</a>
           </router-link>
 
@@ -18,23 +18,31 @@
           
           
           <li class="nav-item">
-            <router-link to="usuarios">
+            <router-link to="/usuarios">
             <a class="nav-link" href="#">Usuarios</a>
             </router-link>
           </li>
 
 
           <li class="nav-item">
-            <router-link to="productos">
+            <router-link to="/productos">
             <a class="nav-link" href="#">Productos</a>
               </router-link>
           </li>
 
           <li class="nav-item">
-            <router-link to="reporte">
+            <router-link to="/reporte/grey/white">
             <a class="nav-link" href="#">Reporte</a>
               </router-link>
           </li>
+
+          <li class="nav-item">
+            <router-link to="">
+            <a class="nav-link" href="#">Cantidad Total de articulos: {{this.$store.state.contadorProductos}}</a>
+              </router-link>
+          </li>
+
+          
         </ul>
       </div>
     </nav>
@@ -67,7 +75,5 @@
 </script>
 
 <style scoped lang="css">
-  .src-components-nav-bar {
 
-  }
 </style>
