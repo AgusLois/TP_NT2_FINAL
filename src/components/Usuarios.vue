@@ -27,7 +27,7 @@
                 </td>
               </tr>
             </table>
-            <h4 class="alert alert-secondary">Se encontraron {{ usuarios.length }} usuarios</h4>
+            <h4 class="alert alert-secondary">Se encontraron {{ personasFiltradas.length }} usuarios</h4>
           </div>
           <h4 v-else class="alert alert-danger text-center">No se encontraron Usuarios</h4>
 

@@ -33,7 +33,7 @@
                       </tr>
 
                   </table>
-                  <h4 class="alert alert-secondary">Se encontraron {{ productos.length }} productos</h4>
+                  <h4 class="alert alert-secondary">Se encontraron {{ productosFiltrados.length }} productos</h4>
                 </div>
                 <h4 v-else class="alert alert-danger text-center">No se encontraron productos</h4>
     
