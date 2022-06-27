@@ -17,7 +17,7 @@
               </tr>
               <tr v-for="(usuario,index) in personasFiltradas" :key="index">
                  <td>{{ usuario.id }}</td>
-                 <td>{{ usuario.email }}</td>
+                 <td>{{ usuario.email  | pasarAMayuscula}}</td>
                   <button class="btn btn-danger mr-2" @click="eliminar(usuario.id)">ELIMINAR</button>
                  <button class="btn btn-primary" @click="editar(usuario.id)">EDITAR</button>
               </tr>
