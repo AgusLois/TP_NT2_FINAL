@@ -98,4 +98,7 @@ h1 {
     background: #eee !important;
     font-size: 0.9em;
 }
+h3{
+    color: black;
+}
 </style>
