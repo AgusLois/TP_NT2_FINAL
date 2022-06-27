@@ -1,49 +1,46 @@
 <template >
 
-   <section class="src-componentes-nav-bar">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <router-link to="/formularioAlta">
-            <a class="navbar-brand" href="#">Inicio</a>
-          </router-link>
+  <section class="src-componentes-nav-bar">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <router-link to="/formularioAlta">
+        <a class="navbar-brand" href="#">Inicio</a>
+      </router-link>
 
-          
+
       <!-- este boton es del boton hamburguesa -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-       
+
       <div class="collapse navbar-collapse" id="navbarNav">
+
         <ul class="navbar-nav">
-          
-          
+
+
           <li class="nav-item">
             <router-link to="/usuarios">
-            <a class="nav-link" href="#">Usuarios</a>
+              <a class="btn btn-outline-secondary btn-sm text-white m-1" href="#">Usuarios</a>
             </router-link>
           </li>
 
 
           <li class="nav-item">
             <router-link to="/productos">
-            <a class="nav-link" href="#">Productos</a>
-              </router-link>
+              <a class="btn btn-outline-secondary btn-sm text-white m-1" href="#">Productos</a>
+            </router-link>
           </li>
 
           <li class="nav-item">
             <router-link to="/reporte/grey/white">
-            <a class="nav-link" href="#">Reporte</a>
-              </router-link>
+              <a class="btn btn-outline-secondary btn-sm text-white m-1" href="#">Reporte</a>
+            </router-link>
           </li>
-
-          <li class="nav-item">
-            <router-link to="">
-            <a class="nav-link" href="#">Cantidad Total de articulos: {{this.$store.state.contadorProductos}}</a>
-              </router-link>
-          </li>
-
-          
         </ul>
+           <span class="navbar-text">
+            Total de articulos: {{ this.$store.state.contadorProductos }}
+          </span>
       </div>
     </nav>
   </section>
@@ -52,28 +49,27 @@
 
 <script >
 
-  export default  {
-    name: 'src-components-nav-bar',
-    props: [],
-    mounted () {
+export default {
+  name: 'src-components-nav-bar',
+  props: [],
+  mounted() {
 
-    },
-    data () {
-      return {
-
-      }
-    },
-    methods: {
-
-    },
-    computed: {
+  },
+  data() {
+    return {
 
     }
+  },
+  methods: {
+
+  },
+  computed: {
+
+  }
 }
 
 
 </script>
 
 <style scoped lang="css">
-
 </style>

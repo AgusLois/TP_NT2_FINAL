@@ -1,13 +1,12 @@
 <template>
 
-  <section class="src-components-formulario-editar">
-  <div class="jumbotron">
-      <h2>Formulario de edicion de producto</h2>
-      <hr>
-      <hr>
-      <br>
-
-      <vue-form :state="formState" @submit.prevent="editar(productoAEditar.id)">
+  <section class="src-components-formulario-editar container">
+  <div class="card mt-5">
+    <div class="card-header">
+      <h3 class="card-title">Formulario de Edición de Producto</h3>
+    </div>
+    <div class="card-body">
+  <vue-form :state="formState" @submit.prevent="editar(productoAEditar.id)">    
     
            <!--     Campo id producto    -->
            <validate tag="div">
@@ -156,11 +155,12 @@
         <br>
 
         <!-- Botones-->
-        <button class="btn btn-success my-4 mr-3" :disabled="formState.$invalid">Enviar</button>
-        <button class="btn btn-danger my-4 " @click="cancelar()">Cancelar</button>
+        <button class="btn btn-outline-success my-4 mr-3" :disabled="formState.$invalid">Enviar</button>
+        <button class="btn btn-outline-danger my-4 " @click="cancelar()">Cancelar</button>
       </vue-form>      
+    </div>
 
-      <hr>
+
      <!--  <p><u>formData</u></p>
       <pre>{{ formData }}</pre>
 

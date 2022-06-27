@@ -1,59 +1,53 @@
 <template>
-    <section class="src-components-reporte" :style="{backgroundColor:colorDeFondo,color:colorDeTexto}">
-        <hr>
-        <h1>Reporte de productos</h1>
-        <div v-for="(p, sucursal) in productos" v-bind:key="sucursal">
-
-            <h3>Sucursal {{ sucursal }}</h3>
-            <div v-if="p.length" class="table">
-                <table class="table table-light">
-
+    <section class="src-components-reporte container" :style="{ backgroundColor: colorDeFondo, color: colorDeTexto }">
+        <div class="card mt-5">
+            <div class="card-header">
+                <h3 class="card-title-dark">Reporte de Productos</h3>
+            </div>
+            <div class="card-body">
+                <table class="table table-light table-sm table-bordered">
+                    <tbody v-for="(p, sucursal) in productos" v-bind:key="sucursal">
+                        <tr class="sucursal">
+                            <td colspan="2">Sucursal {{ sucursal }}</td>
+                        </tr>
+                        <tr class="cabecera-mini">
+                            <td>Producto</td>
+                            <td>Cantidad</td>
+                        </tr>
+                        <tr v-for="(producto, index) in p" :key="index">
+                            <td>{{ producto.Nombre }}</td>
+                            <td>{{ producto.Cantidad }}</td>
+                        </tr>
+                    </tbody>
+                    <hr>
                     <tr>
-                        <th>Producto</th>
-                        <th>Cantidad</th>
+                        <td>Cantidad total de Productos: </td>
+                        <td class="btn btn-outline-success" @click="contarProductos"> {{ mostrarCantidadTotal }}</td>
                     </tr>
-                    <tr v-for="(producto,index) in p" :key="index">
-                        <td>{{ producto.Nombre }}</td>
-                        <td>{{ producto.Cantidad }}</td>
-                    </tr>
-                   
-
                 </table>
             </div>
-            <h4 v-else class="alert alert-danger text-center">No se encontraron productos en esta sucursal</h4>
-            
-
         </div>
-
         <div>
-            <table class="table table-dark">
-                    <tr>
-                        <td>Cantidad total de Productos : </td>
-                        <td class="btn btn-success" @click="contarProductos"> {{mostrarCantidadTotal}}</td> 
-                    </tr>
-            </table>
         </div>
-
-
     </section>
 </template> 
 
 <script>
 import axios from 'axios'
 export default {
-    name: 'src-components-usuario',
-    props: ["colorDeFondo","colorDeTexto"],
+    name: 'src-components-reporte',
+    props: ["colorDeFondo", "colorDeTexto"],
     mounted() {
         this.productosPorSucursal()
-       
-        
-        
+
+
+
     },
     data() {
         return {
             productos: [],
             url: 'https://62842ba33060bbd3473556b1.mockapi.io/Productos',
-            
+
         }
     },
     methods: {
@@ -76,15 +70,15 @@ export default {
 
 
     },
-        computed: {
-            mostrarCantidadTotal(){
-                let cantidadTotal = this.$store.state.contadorProductos
-                return cantidadTotal
-            }
+    computed: {
+        mostrarCantidadTotal() {
+            let cantidadTotal = this.$store.state.contadorProductos
+            return cantidadTotal
+        }
 
-        },
+    },
 
-    }
+}
 
 
 
@@ -93,5 +87,15 @@ export default {
 <style scoped lang="css">
 h1 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.sucursal td {
+    background: #ddd !important;
+    font-weight: bold;
+}
+
+.cabecera-mini td {
+    background: #eee !important;
+    font-size: 0.9em;
 }
 </style>
