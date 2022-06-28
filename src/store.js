@@ -56,7 +56,7 @@ export default new Vuex.Store({
 
         logout(state) {
             state.isAuthenticated = false;
-            router.push('/login');
+            router.push('/');
         }
 
     },
