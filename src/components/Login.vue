@@ -16,13 +16,20 @@
             <input type="password" v-if="type == 1" class="form-control" placeholder="Repetir contraseña"
               v-model="password2" required>
 
-            <button class="btn btn-outline-dark mb-2" v-if="type == 0" v-on:click="login">Iniciar Sesión</button>
-            <button class="btn btn-outline-dark mb-2" v-if="type == 1" v-on:click="registro">Registrar</button>
+            <button v-show="!loading" class="btn btn-outline-dark mb-2" v-if="type == 0" v-on:click="login">Iniciar
+              Sesión</button>
 
+            <button v-show="!loading" class="btn btn-outline-dark mb-2" v-if="type == 1"
+              v-on:click="registro">Registrar</button>
+
+            <div v-show="loading" class="spinner-border text-dark" role="status">
+              <span class="visually-hidden"></span>
+            </div>
             <br>
 
             <a href="javascript:void(0)" @click="type = 1" v-if="type != 1">Registrate aquí</a>
             <a href="javascript:void(0)" @click="type = 0" v-if="type != 0">Sign in</a>
+
 
           </form>
 
@@ -54,17 +61,19 @@ export default {
       password2: "",
       error: false,
       error_msg: "",
+      loading: false
     }
   },
   methods: {
-    login() {
+    async login() {
 
       let json = {
         email: this.email,
         password: this.password,
       }
 
-      axios.get('/users').then(response => {
+      this.loading = true;
+      await axios.get('/users').then(response => {
         let usuarios = response.data
 
         let usuarioFinal = null
@@ -85,6 +94,8 @@ export default {
       }).catch(error => {
         console.log(error)
       })
+
+      this.loading = false;
 
     },
 

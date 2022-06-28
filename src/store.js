@@ -1,15 +1,17 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import router from './router'
+
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   
-        state : {
-            
+        state : {          
             unaVez:false,
-            contadorProductos:0
+            contadorProductos:0,
+            isAuthenticated: false,
         },
         actions : {
     
@@ -40,12 +42,17 @@ export default new Vuex.Store({
                         
                 }
                 }
-                
-            
                     
-    
             },
-           
-    
+
+            setAuthenticated(state, value){
+                state.isAuthenticated = value;
+            },
+
+            logout(state){
+                state.isAuthenticated = false;
+                router.push('/login');
+            }
+         
         },
     })

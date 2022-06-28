@@ -1,6 +1,6 @@
 <template >
 
-  <section class="src-componentes-nav-bar">
+  <section class="src-componentes-nav-bar" v-if="!isAuthenticated">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <router-link to="/formularioAlta">
         <a class="navbar-brand" href="#">Inicio</a>
@@ -33,14 +33,17 @@
           </li>
 
           <li class="nav-item">
-            <router-link to="/reporte/grey/white">
+            <router-link to="/reporte/grey/black">
               <a class="btn btn-outline-secondary btn-sm text-white m-1" href="#">Reporte</a>
             </router-link>
           </li>
-        </ul>
-           <span class="navbar-text">
+          <span class="navbar-text">
             Total de articulos: {{ this.$store.state.contadorProductos }}
           </span>
+          <li class="nav-item right" >       
+              <a href="#" class="btn btn-outline-danger btn-sm text-white m-1" @click="$store.commit('logout')">Cerrar sesión</a>
+          </li>
+        </ul>
       </div>
     </nav>
   </section>
@@ -64,7 +67,7 @@ export default {
 
   },
   computed: {
-
+    
   }
 }
 
