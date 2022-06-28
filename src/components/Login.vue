@@ -85,7 +85,7 @@ export default {
         })
 
         if (usuarioFinal != null) {
-          this.$router.push('formularioAlta')
+          this.$router.push('dashboard')
         } else {
           this.error = true;
           this.error_msg = "Datos incorrectos";
@@ -108,7 +108,7 @@ export default {
       console.log("creo user")
       axios.post('/users', json).then(response => {
         console.log(response)
-        this.$router.push('formularioAlta')
+        this.$router.push('dashboard')
       })
         .catch(error => {
           console.log(error)

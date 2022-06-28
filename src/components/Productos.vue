@@ -27,8 +27,9 @@
                       <td>{{ producto.id }}</td>
                       <td>{{ producto.Nombre }}</td>
                       <td>{{ producto.Precio | curremcy("$") }}</td>
-                      <td>{{ producto.Cantidad }}</td>
+                      <td>{{producto.Cantidad}}</td>
                       <td>{{ producto.Categoria }}</td>
+                    
                       <td>
                         <button class="btn btn-outline-danger btn-sm mr-2" @click="eliminar(producto.id)">Eliminar</button>
                         <button class="btn btn-outline-primary btn-sm" @click="productoAEditar=producto">Editar</button>
@@ -107,21 +108,9 @@
             console.log("Error en eliminar()", error.message)
             }
       },
-      /*  async editar(id){
-         console.log("put usuarios", id)
-          try{
-
-            let {data:usuario} = await this.axios.put(this.url+id, usuarioUpdate, {"content-type": "application/json"})
-            console.log("AXIOS PUT USUARIOS", usuario)
-            let index = this.usuarios.findIndex(user => user.id == usuario.id)
-            if(index == -1) throw new Error ("Usuario no encontrado")
-            this.usuarios.splice(index,1,usuario)
-            }
-            catch(error){
-            console.log("Error en putUsuarios()", error.message)
-            }
-
-          } */
+    
+       
+     
 
     },
     computed: {
@@ -133,8 +122,6 @@
     }
   },
 }
-
-
 
 
 </script>

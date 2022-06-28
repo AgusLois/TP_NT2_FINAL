@@ -23,7 +23,6 @@
                 <td>{{ usuario.email | pasarAMayuscula }}</td>
                 <td>
                   <button class="btn btn-outline-danger btn-sm mr-2" @click="eliminar(usuario.id)">Eliminar</button>
-                  <button class="btn btn-outline-primary btn-sm" @click="editar(usuario.id)">Editar</button>
                 </td>
               </tr>
             </table>
