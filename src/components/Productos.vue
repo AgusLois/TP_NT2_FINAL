@@ -7,7 +7,11 @@
       <div class="card-header">
         <h3 class="card-title">Listado de Productos</h3>
       </div>
+  
       <div class="card-body">
+        <div>
+        <router-link to="/formularioAlta" class="btn btn-outline-secondary btn-sm text-black m-1">Agregar un producto</router-link>
+      </div>
         <div class="container-fluid mt-3" id="app">
           <input type="text" class="form-control" v-model="criterioDeBusqueda" placeholder="Búsqueda de productos...">
           <br>

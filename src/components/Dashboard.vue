@@ -1,61 +1,61 @@
 <template>
-    <section  class="dashboard ml-5" >
-        <br>
-        <div class="jumbotron">
-            <h2>Bienvenido </h2>
-        
+    <section class="dashboard ml-5">
         <br>
 
-        <div >
+        <br>
+        <h3 class="card-title">Bienvenido/a {{ mostrarEmail }}</h3>
+        <hr>
+        <br>
 
 
-            <table >
-            <thead>
-                <tr>
-                    
-                    <th>
-                            <router-link to="/usuarios" >
-                            <a class="btn btn-outline-secondary btn-sm text-white m-1 mr-3" href="#">
-                            <img src="../assets/img/hacker.gif" width="200" >
+        <div class="row">
+            <br>
+            <div class="col">
+                <div style="width: 20rem;">
+                    <router-link to="/usuarios">
+                        <a class="card-body btn btn-outline-info btn-sm text-white m-1 mr-3" href="#">
+                            <img class="card-img-top" src="../assets/img/hacker.gif" width="100" alt="...">
                             Usuarios
-                            </a>
-                            </router-link>
-
-                        
-                        
-                    </th>
-                            <router-link to="/productos">
-                            <a class="btn btn-outline-secondary btn-sm text-white m-1 mr-3" href="#">
-                            <img src="../assets/img/producto.gif" width="200">
+                        </a>
+                    </router-link>
+                </div>
+            </div>
+            <div class="col">
+                <div style="width: 20rem;">
+                    <router-link to="/productos">
+                        <a class="card-body btn btn-outline-info btn-sm text-white m-1 mr-3" href="#">
+                            <img class="card-img-top" src="../assets/img/producto.gif" width="200">
                             Productos</a>
-                            </router-link>
-
-                    <th>
-                            <router-link to="/reporte">
-                            <a class="btn btn-outline-secondary btn-sm text-white m-1" href="#">
-                            <img src="../assets/img/presentacion.gif" width="200">
+                    </router-link>
+                </div>
+            </div>
+            <div class="col">
+                <div style="width: 20rem;">
+                    <router-link to="/reporte">
+                        <a class="card-body btn btn-outline-info btn-sm text-white m-1 mr-3" href="#">
+                            <img class="card-img-top" src="../assets/img/presentacion.gif" width="200">
                             Reporte
-                            </a>
-                            </router-link>
-                       
-                       
-                    </th>
-
-
-                </tr>
-
-            </thead>
-
-
-        </table>
-
-           
-       </div>
-
-      
+                        </a>
+                    </router-link>
+                </div>
+            </div>
         </div>
+
+
     </section>
 </template>
+
+<script>
+
+export default {
+    computed: {
+        mostrarEmail() {
+            let email = this.$store.state.email
+            return email
+        }
+    }
+}
+</script>
 
 <style scoped lang="css">
 /* #item {
@@ -66,8 +66,8 @@
 .jumbotron {
     background-color: white;
 }
-.dashboard {
-    background-color:white;
-}
 
+.dashboard {
+    background-color: white;
+}
 </style>

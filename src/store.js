@@ -12,6 +12,7 @@ export default new Vuex.Store({
             unaVez:false,
             contadorProductos:0,
             isAuthenticated: false,
+            email: ''
         },
         actions : {
     
@@ -47,6 +48,10 @@ export default new Vuex.Store({
 
             setAuthenticated(state, value){
                 state.isAuthenticated = value;
+            },
+
+            setEmail(state, email){
+                state.email = email;
             },
 
             logout(state){

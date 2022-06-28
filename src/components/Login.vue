@@ -84,7 +84,10 @@ export default {
           }
         })
 
+
         if (usuarioFinal != null) {
+          this.$store.commit('setAuthenticated', true)
+          this.$store.commit('setEmail', usuarioFinal.email)
           this.$router.push('dashboard')
         } else {
           this.error = true;
