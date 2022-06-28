@@ -1,7 +1,9 @@
 <template>
 
   <section class="src-components-usuario container">
-    <div class="card mt-5">
+    <div v-if="!productoAEditar" class="card mt-5">
+    
+
       <div class="card-header">
         <h3 class="card-title">Listado de Productos</h3>
       </div>
@@ -9,6 +11,7 @@
         <div class="container-fluid mt-3" id="app">
           <input type="text" class="form-control" v-model="criterioDeBusqueda" placeholder="Búsqueda de productos...">
           <br>
+
                 <div v-if="productos.length && !productoAEditar" class="table-responsive">
                   <table class="table table-striped ">
                     <tr>
@@ -36,21 +39,21 @@
                   <h4 class="alert alert-secondary">Se encontraron {{ productosFiltrados.length }} productos</h4>
                 </div>
                 <h4 v-else class="alert alert-danger text-center">No se encontraron productos</h4>
-    
+        </div>
 
-          <!--  USO LA COMUNICACION ENTRE CLASES A TRAVES DE PROPS Y EVENTOS -->
+          
+
+        </div>
+
+    
+    </div>
+         <!--  USO LA COMUNICACION ENTRE CLASES A TRAVES DE PROPS Y EVENTOS -->
           <div v-if="productoAEditar">
             <editar :productoAEditar="productoAEditar" :listaProductos="productos" @editado="productoAEditar = $event">
             </editar>
           </div>
-
-        </div>
-
-      </div>
-    </div>
-
   </section>
-
+  
 </template>
 
 <script>
