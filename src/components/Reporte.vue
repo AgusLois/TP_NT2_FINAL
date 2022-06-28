@@ -16,7 +16,8 @@
                         </tr>
                         <tr v-for="(producto, index) in p" :key="index">
                             <td>{{ producto.Nombre }}</td>
-                            <td>{{ producto.Cantidad }}</td>
+                            <td :style="{color: dameColor(producto.Cantidad).color}">
+                       {{dameColor(producto.Cantidad).cantidad}}</td>
                         </tr>
                     </tbody>
                     <hr>
@@ -67,8 +68,17 @@ export default {
 
             console.log(productos)
         },
+         dameColor(cantidad){
+          let color = ''
+        if(cantidad <= 10) color = 'red'
+        else if(cantidad > 10) color = 'green'
+       
+        return {
+          cantidad,
+          color
+        }
 
-
+         }
     },
     computed: {
         mostrarCantidadTotal() {
@@ -97,5 +107,8 @@ h1 {
 .cabecera-mini td {
     background: #eee !important;
     font-size: 0.9em;
+}
+h3{
+    color: black;
 }
 </style>
