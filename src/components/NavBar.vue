@@ -2,7 +2,7 @@
 
   <section class="src-componentes-nav-bar">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <router-link to="/formularioAlta">
+      <router-link to="/dashboard">
         <a class="navbar-brand" href="#">Inicio</a>
       </router-link>
 
