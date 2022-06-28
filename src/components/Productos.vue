@@ -28,7 +28,7 @@
                       <td>{{ producto.Categoria }}</td>
                       <td>
                         <button class="btn btn-outline-danger btn-sm mr-2" @click="eliminar(producto.id)">Eliminar</button>
-                        <button class="btn btn-outline-primary btn-sm" @click="editar(producto.id)">Editar</button>
+                        <button class="btn btn-outline-primary btn-sm" @click="productoAEditar=producto">Editar</button>
                       </td>
                       </tr>
 
