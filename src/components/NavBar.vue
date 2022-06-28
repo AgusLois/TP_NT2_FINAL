@@ -32,17 +32,17 @@
             </router-link>
           </li>
 
-          <li class="nav-item" >
+          <li class="nav-item">
             <router-link to="/reporte/grey/black">
               <a class="btn btn-outline-secondary btn-sm text-white m-1" href="#">Reporte</a>
             </router-link>
           </li>
-          <span class="navbar-text" >
+          <span class="navbar-text">
             Total de articulos: {{ this.$store.state.contadorProductos }}
           </span>
-  >
-          <li class="nav-item align-content-end">       
-              <a href="#" class="btn btn-danger btn-sm text-white m-1" @click="$store.commit('logout')">Cerrar sesión</a>
+
+          <li class="nav-item ">
+            <a href="#" class="btn btn-danger btn-sm text-white m-1" @click="$store.commit('logout')">Cerrar sesión</a>
           </li>
         </ul>
       </div>
@@ -68,7 +68,7 @@ export default {
 
   },
   computed: {
-    
+
   }
 }
 

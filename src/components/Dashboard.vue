@@ -12,30 +12,25 @@
             <br>
             <div class="col">
                 <div style="width: 20rem;">
-                    <router-link to="/usuarios">
-                        <a class="card-body btn btn-outline-info btn-sm text-white m-1 mr-3" href="#">
-                            <img class="card-img-top" src="../assets/img/hacker.gif" width="100" alt="...">
-                            Usuarios
-                        </a>
+                    <router-link to="/usuarios" class="card-body btn btn-outline-info btn-sm text-white m-1 mr-3 " href="#">
+                            <img class="card-img-top" src="../assets/img/hacker.gif" width="100">
+                            Usuarios                      
                     </router-link>
                 </div>
             </div>
             <div class="col">
                 <div style="width: 20rem;">
-                    <router-link to="/productos">
-                        <a class="card-body btn btn-outline-info btn-sm text-white m-1 mr-3" href="#">
+                    <router-link to="/productos" class="card-body btn btn-outline-info btn-sm text-white m-1 mr-3" href="#">
                             <img class="card-img-top" src="../assets/img/producto.gif" width="200">
-                            Productos</a>
+                            Productos
                     </router-link>
                 </div>
             </div>
             <div class="col">
                 <div style="width: 20rem;">
-                    <router-link to="/reporte">
-                        <a class="card-body btn btn-outline-info btn-sm text-white m-1 mr-3" href="#">
+                    <router-link to="/reporte/grey/black" class="card-body btn btn-outline-info btn-sm text-white m-1 mr-3" href="#">
                             <img class="card-img-top" src="../assets/img/presentacion.gif" width="200">
-                            Reporte
-                        </a>
+                            Reporte                       
                     </router-link>
                 </div>
             </div>
