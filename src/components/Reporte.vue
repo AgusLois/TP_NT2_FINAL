@@ -21,7 +21,7 @@
                     </tbody>
                     <hr>
                     <tr>
-                        <td>Cantidad total de Productos: </td>
+                        <td>Presione el botón para calcular el total de productos: </td>
                         <td class="btn btn-outline-success" @click="contarProductos"> {{ mostrarCantidadTotal }}</td>
                     </tr>
                 </table>
